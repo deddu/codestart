@@ -1,0 +1,41 @@
+AWSTemplateFormatVersion: 2010-09-09
+Transform:
+- AWS::Serverless-2016-10-31
+
+Parameters:
+  DBURL:
+    Type: String
+    Description: DB endpoint
+  DBUSER:
+    Type: String
+    Description: DB User
+  DBPASSWORD:
+    Type: String
+    Description: DB User password
+  
+
+Resources:
+  ProcessApi:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: index.handler
+      Runtime: nodejs6.10
+      CodeUri: app/
+      Policies: 
+        - AWSLambdaBasicExecutionRole
+      Environment:
+        Variables:
+          DBURL: !Ref 'DBURL' 
+          DBUSER: !Ref 'DBUSER'
+          DBPASSWORD: !Ref 'DBPASSWORD'
+      Events:
+        GetEnv:
+          Type: Api
+          Properties:
+            Path: /env
+            Method: get
+        PostTest:
+          Type: Api
+          Properties:
+            Path: /test
+            Method: post

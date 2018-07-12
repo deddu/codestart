@@ -1,0 +1,21 @@
+{
+  "private": true,
+  "name": "a-new-project-api",
+  "version": "0.0.1",
+  "description": "",
+  "author": "Andrea Cadeddu",
+  "dependencies": {
+    "aws-sdk": "^2.8.0",
+    "body-parser": "latest",
+    "express": "latest",
+    "aws-serverless-express": "latest"
+  },
+  "devDependencies": {
+    "nsp": "latest",
+    "prettier": "latest"
+  },
+  "scripts": {
+    "pretty": "./node_modules/.bin/prettier */**/*.js --ignore-path ./.prettierignore --write",
+    "nsp": "./node_modules/.bin/nsp check ."
+  }
+}

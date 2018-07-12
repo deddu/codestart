@@ -1,0 +1,7 @@
+{
+    "Parameters": {
+        "DBURL": "one-dev",
+        "DBUSER": "two-dev",
+        "DBPASSWORD": "three"
+    }
+}
